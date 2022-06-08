@@ -45,9 +45,11 @@ header p {
 }
 
 .search-form {
-    padding: 1.6rem;
+    padding: 1.6rem 1.6rem 0rem;
     display: flex;
     width: 800px;
+
+
 }
 
 .search-form input {
@@ -55,7 +57,8 @@ header p {
     padding: 0.9rem;
     width: 100%;
     border: none;
-    border: 2px solid #1d1d1d;
+    outline: none;
+    border: 1px solid #1d1d1d;
 
 }
 
@@ -71,6 +74,23 @@ header p {
     background: #1d1d1d;
     color: white;
     cursor: pointer;
+}
+
+.search-form button:hover {
+    background: #242424;
+}
+
+.popular-tag {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.popular-tag a {
+    color: #fff;
+}
+
+.popular-tag a:hover {
+    color: rgb(235, 235, 235);
 }
 
 .gallery-info {
@@ -115,4 +135,16 @@ header p {
     border: none;
     font-size: 1.2rem;
     cursor: pointer;
+}
+
+.more:hover {
+    background: #242424;
+}
+
+/* media queries */
+
+@media only screen and (max-width: 800px) {
+    .search-form {
+        width: 90%;
+    }
 }
