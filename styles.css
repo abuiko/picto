@@ -108,7 +108,7 @@ header p {
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    padding: 1.5rem 0rem;
+    padding: 4rem 0rem 2rem;
     width: 80%;
     margin: auto;
     row-gap: 5rem;
