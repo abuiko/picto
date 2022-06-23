@@ -4,6 +4,7 @@ const gallery = document.querySelector(".gallery")
 const searchInput = document.querySelector(".search-input")
 const form = document.querySelector(".search-form")
 const more = document.querySelector(".more")
+const popularLinks = document.querySelectorAll(".popular-tag a")
 
 let searchValue;
 let page = 1
@@ -16,6 +17,12 @@ form.addEventListener('submit', (e) => {
     searchPhotos(searchValue)
 })
 more.addEventListener('click', loadMore)
+popularLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+        const tag = link.textContent.toLowerCase()
+        searchPhotos(tag)
+    })
+})
 
 function updateInput(e) {
     searchValue = e.target.value
@@ -42,14 +49,20 @@ function generatePhotos(data) {
             
             <div class="gallery-info">
                 <p>${photo.photographer}</p>
-                <a href=${photo.src.original} target="_blank">Download</a>
+                <a href=${photo.src.original} target="_blank">Open Full Size</a>
             </div>
             <img src=${photo.src.large}></img>
+            <div class="size">
+                <p><a href="#">Small</a></p>
+                <p><a href="#">Medium</a></p>
+                <p><a href="#">Large</a></p>
+            </div>
             
         `
         gallery.appendChild(galleryImg)
     });
 }
+
 
 async function curatedPhotos() {
     fetchLink = "https://api.pexels.com/v1/curated?per_page=15&page=1"
@@ -76,6 +89,8 @@ async function loadMore() {
     const dataFetch = await fetchApi(updateLink)
     generatePhotos(dataFetch)
 }
+
+
 
 
 curatedPhotos()
